@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContadorManual.MAUI.Views.MainPage"
+             Title="Contador Manual">
+
+    <VerticalStackLayout
+        Spacing="16"
+        Margin="16"
+        Padding="12">
+
+        <Label
+            Text="Conteo:"
+            Margin="12"
+            Padding="16"
+            VerticalOptions="Fill"
+            FontSize="Small"
+             HorizontalOptions="Center"
+            FontAttributes="Italic"/>
+
+        <Border
+            Stroke="Gray"
+            StrokeThickness="2">
+
+            <Label
+                Text="{Binding Path=Conteo}"
+                Margin="16"
+                Padding="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                FontSize="Large"
+                FontAttributes="Bold"/>
+
+        </Border>
+        
+        <HorizontalStackLayout
+            Spacing="8"
+            >
+            
+                <Label
+                    Text="Incrementar conteo por:"
+                    VerticalOptions="Center"/>
+                <Entry
+                    BackgroundColor="DarkBlue"
+                    Text="{Binding Source={x:Reference IncrementoStepper}, Path=Value}"
+                    IsReadOnly="True"/>
+                <Stepper
+                    Value="{Binding Path= Incremento}"
+                    Increment="1"
+                    Minimum="1"
+                    Maximum="20"
+                    x:Name="IncrementoStepper"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            Spacing="36"
+            Margin="0,24,0,0"
+            >
+
+        <Button
+               Text="Contar"
+               Clicked="OnContarButton_Clicked"/>
+
+        <Button
+              Text="Reiniciar"
+              Clicked="OnReiniciarButton_Clicked"/>
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>
