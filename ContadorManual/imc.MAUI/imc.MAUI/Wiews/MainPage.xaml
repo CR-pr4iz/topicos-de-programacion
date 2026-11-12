@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="imc.MAUI.Wiews.MainPage"
+             Title="MainPage">
+    <ScrollView>
+
+        <Grid
+            RowDefinitions=" Auto,Auto,*"
+            ColumnDefinitions="*"
+            RowSpacing="16"
+            Padding="24">
+
+            <Border
+                Stroke="LightGray"
+                StrokeThickness="2">
+
+                <Grid
+                    Padding="18"
+                    Grid.Row="0"
+                    ColumnDefinitions="*,*"
+                    RowDefinitions ="*,*">
+
+                    <Label
+                        Text="Proporcione el peso"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        />
+                    <Entry                        
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding Path= Peso}"/>
+                    <Label
+                        Text="Proporcione la estatura"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding Path= Estatura}"/>
+
+                </Grid>
+
+            </Border>
+
+            <Border>
+
+                <HorizontalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                  Spacing="24">
+
+                    <Button
+            
+                      Text="Calcular"
+                       BackgroundColor="Green"
+                        Command="{Binding Path=CalcularCommand}"/>
+                    <Button
+                     Text="Limpiar"
+                    />
+
+                </HorizontalStackLayout>
+
+            </Border>
+
+            <Border
+               StrokeThickness="2">
+
+                <Border.StrokeShape>
+                    <RoundRectangle
+                    CornerRadius="10"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout
+                 Padding="18"
+               Spacing="8"
+                    Grid.Row="2">
+
+                    <Label
+                    Text="El indice corporal es"/>
+
+                    <Label
+            HorizontalOptions="Center"
+            FontSize="Medium"
+            FontAttributes="Bold"
+                    Text="{Binding Path= Imc}"
+                        />
+
+                    <Label
+            Text="La situacion nutricional de la persona es:"/>
+
+                    <Label
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    Text="{Binding Path= EstadoNutricional}"
+                        />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </Grid>
+
+    </ScrollView>
+</ContentPage>
